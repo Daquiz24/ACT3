@@ -72,7 +72,7 @@
 
 <div class="container mt-5">
     <div class="slider-container">
-        <img class="mySlides" src="products/nike1.jpg" alt="Slide 1">
+        <img class="mySlides" src="products/1.jpg" alt="Slide 1">
         <img class="mySlides" src="products/nike2.jpeg" alt="Slide 2">
         <img class="mySlides" src="products/nike3.jpg" alt="Slide 3">
         <img class="mySlides" src="products/nike4.jpg" alt="Slide 4">
