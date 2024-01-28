@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple eCommerce Page</title>
+    <title>GEISHA'S BLADE 芸者の刃</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -36,7 +36,7 @@
 </head>
 <body>
     <header>
-        <h1>Simple eCommerce</h1>
+        <h1>KATANA</h1>
     </header>
     <section>
         <div class="product">

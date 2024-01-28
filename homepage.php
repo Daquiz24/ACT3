@@ -44,7 +44,7 @@
             height: auto;
         }
     </style>
-    <title>E-commerce</title>
+    <title>GEISHA'S BLADE 芸者の刃</title>
 </head>
 <body>
 
@@ -63,7 +63,7 @@
           <a class="nav-link" href="imagegallery.php">Shop</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="config/logout.php">Logout</a>
+          <a class="nav-link" href="config/logout.php">Log out</a>
         </li>
       </ul>
     </div>
