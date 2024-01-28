@@ -72,10 +72,10 @@
 
 <div class="container mt-5">
     <div class="slider-container">
-        <img class="mySlides" src="products/A.jpg" alt="Slide 1">
-        <img class="mySlides" src="products/B.jpeg" alt="Slide 2">
-        <img class="mySlides" src="products/nike3.jpg" alt="Slide 3">
-        <img class="mySlides" src="products/nike4.jpg" alt="Slide 4">
+        <img class="mySlides" src="products/B.jpg" alt="Slide 1">
+        <img class="mySlides" src="products/E.jpg" alt="Slide 2">
+        <img class="mySlides" src="products/C.jpg" alt="Slide 3">
+        <img class="mySlides" src="products/F.jpg" alt="Slide 4">
         <button class="slider-btn prev" onclick="plusDivs(-1)">&#10094;</button>
         <button class="slider-btn next" onclick="plusDivs(1)">&#10095;</button>
     </div>
