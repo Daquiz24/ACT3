@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery</title>
+    <title>Simple eCommerce Page</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -67,7 +67,7 @@
             <p>₱8,800.00</p>
             <button>Add to Cart</button>
         </div>
-        <div class="Photos/product">
+        <div class="product">
             <img src="Photos/nami.jpg" alt="Product 5">
             <h2>Nami Mitsudomoe Katana</h2>
             <p>Description of Product 5. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
