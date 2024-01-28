@@ -95,11 +95,17 @@
         if (n > x.length) {slideIndex = 1}
         if (n < 1) {slideIndex = x.length}
         for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";  
+            x[i].style.display = "none";
         }
-        x[slideIndex-1].style.display = "block";  
+        x[slideIndex-1].style.display = "block";
     }
+
+    // Automatically advance the slider every 3 seconds (adjust as needed)
+    setInterval(function() {
+        plusDivs(1);
+    }, 3000);
 </script>
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-rZpZEAgY5BV8LpPyrBteJ+5HRgNwYfX1S+1aTtOJEd3E3nIg/6Qjcz2RMIbYMWx3" crossorigin="anonymous"></script>
 </body>
