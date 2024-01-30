@@ -34,6 +34,25 @@
         }
     </style>
 </head>
+
+<!-- ... your existing HTML code ... -->
+
+<footer>
+        <p>&copy; 2024 Simple eCommerce</p>
+    </footer>
+
+    <!-- Button linking to homepage.php -->
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="homepage.php">
+            <button style="padding: 10px 20px; font-size: 16px; background-color: #333; color: #fff; border: none; cursor: pointer;">
+                Go to Homepage
+            </button>
+        </a>
+    </div>
+</body>
+</html>
+
+
 <body>
     <header>
         <h1>KATANA</h1>
