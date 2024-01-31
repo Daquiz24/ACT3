@@ -212,8 +212,20 @@ $result = $conn->query($sql);
         }
         $conn->close();
         ?>
+        
     </tbody>
 </table>
+
+ <!-- Form for adding a product -->
+ <form action="config/add.php" method="post" enctype="multipart/form-data">
+     <label for="addProductName">Product Name:</label>
+     <input type="text" name="productName" required><br>
+     <label for="addPrice">Price:</label>
+     <input type="number" name="price" required><br>
+     <label for="addProductImage">Product Image:</label>
+     <input type="file" name="productImage" required><br>
+     <button type="submit" class="btn btn-success" name="add">Add Product</button>
+ </form>
 
 </body>
 </html>
