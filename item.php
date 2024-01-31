@@ -118,7 +118,7 @@ $result = $conn->query($sql);
           <a class="nav-link" href="imagegallery.php">Shop</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="item.php">Logout</a>
+          <a class="nav-link" href="item.php">crud</a>
         </nav>
         <li class="nav-item">
           <a class="nav-link" href="config/logout.php">Logout</a>
