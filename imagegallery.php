@@ -1,129 +1,182 @@
+<?php
+session_start();
+require_once 'config/db.php';
+
+if (!isset($_SESSION["userName"])) {
+    header("Location: index.php");
+    exit();
+}
+// Fetch products from the database
+$sql = "SELECT * FROM product";
+$result = $conn->query($sql);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GEISHA'S BLADE 芸者の刃</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        header {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 1em;
-        }
-        section {
-            padding: 20px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-        .product {
-            width: 30%;
-            border: 1px solid #ddd;
-            padding: 10px;
-            margin: 10px;
-            text-align: center;
-            background-color: #fff;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-        }
-    </style>
+    <title>Gallery</title>
+  
 </head>
-
-<!-- ... your existing HTML code ... -->
-
-<footer>
-        <p>&copy; 2024 Simple eCommerce</p>
-    </footer>
-
-    <!-- Button linking to homepage.php -->
-    <div style="text-align: center; margin-top: 20px;">
-        <a href="homepage.php">
-            <button style="padding: 10px 20px; font-size: 16px; background-color: #333; color: #fff; border: none; cursor: pointer;">
-                Go to Homepage
-            </button>
-        </a>
-    </div>
-</body>
-</html>
-
-
 <body>
     <header>
-        <h1>KATANA</h1>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+ 
+    
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.php">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="imagegallery.php">Shop</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="item.php">Crud</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="config/logout.php">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+       
     </header>
     <section>
-        <div class="product">
-            <img src="Photos/Kuro.jpg" alt="Product 1">
-            <h2>Kuro Setsuhen Katana</h2>
-            <p>Description of Product 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <p>₱9,000.00</p>
-            <button>Add to Cart</button>
-        </div>
-        <div class="product">
-            <img src="Photos/setsuhen.jpg" alt="Product 2">
-            <h2>Setsuhen Katana</h2>
-            <p>Description of Product 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <p>₱9,000.00</p>
-            <button>Add to Cart</button>
-        </div>
-        <div class="product">
-            <img src="Photos/kage.jpg" alt="Product 3">
-            <h2>kage katana</h2>
-            <p>Description of Product 3. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <p>₱8,800.00</p>
-            <button>Add to Cart</button>
-        </div>
-        <div class="product">
-            <img src="Photos/yokake.jpg" alt="Product 4">
-            <h2>Yokaze Katana</h2>
-            <p>Description of Product 4. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <p>₱8,800.00</p>
-            <button>Add to Cart</button>
-        </div>
-        <div class="product">
-            <img src="Photos/nami.jpg" alt="Product 5">
-            <h2>Nami Mitsudomoe Katana</h2>
-            <p>Description of Product 5. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <p>₱8,800.00</p>
-            <button>Add to Cart</button>
-        </div>
-        <div class="product">
-            <img src="Photos/mumei.jpg" alt="Product 6">
-            <h2>Mumei Katana</h2>
-            <p>Description of Product 6. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <p>₱8,800.00</p>
-            <button>Add to Cart</button>
-        </div>
-        <div class="product">
-            <img src="Photos/Tsuru.jpg" alt="Product 7">
-            <h2>Product 7</h2>
-            <p>Description of Product 7. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <p>$79.99</p>
-            <button>Add to Cart</button>
-        </div>
-        <div class="product">
-            <img src="Photos/Ryu.jpg" alt="Product 8">
-            <h2>Ryu Katana</h2>
-            <p>Description of Product 8. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <p>₱8,800.00</p>
-            <button>Add to Cart</button>
-        </div>
-        <div class="product">
-            <img src="Photos/shirasaya.jpg" alt="Product 9">
-            <h2>Shirasaya Katana</h2>
-            <p>Description of Product 9. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <p>₱8,600.00</p>
-            <button>Add to Cart</button>
-        </div>
+    <?php
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                echo '<div class="product">';
+                echo '<img src="photos/' . $row["productImage"] . '" alt="' . $row["productName"] . '">';
+                echo '<h2>' . $row["productName"] . '</h2>';
+                echo '<p>₱ ' . number_format($row["price"], 2) . '</p>';
+                echo '<button>Add to Cart</button>';
+                echo '</div>';
+            }
+        } else {
+            echo '<p>No products available.</p>';
+        }
+
+        // Close the database connection
+        $conn->close();
+        ?>
+       
     </section>
     <footer>
         <p>&copy; 2024 Simple eCommerce</p>
     </footer>
 </body>
 </html>
+<style>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+
+    header {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 1em;
+    }
+
+    .navbar {
+        background-color: #007bff;
+        padding: 10px 0; /* Added padding for better appearance */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Added box shadow for depth */
+    }
+
+    .navbar-brand {
+        color: #fff;
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+
+    .navbar-nav {
+        display: flex;
+        flex-direction: column; /* Make navbar links vertical */
+        align-items: center; /* Center the links horizontally */
+        margin: 10px 0; /* Added margin for spacing */
+    }
+
+    .nav-item {
+        margin: 10px 0; /* Added margin for spacing between links */
+    }
+
+    .nav-link {
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+        transition: color 0.3s ease-in-out;
+    }
+
+    .nav-link:hover {
+        color: #f8f9fa; /* Change color on hover */
+    }
+
+    section {
+        padding: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .product {
+        width: 30%;
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin: 10px;
+        text-align: center;
+        background-color: #fff;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .product:hover {
+        transform: scale(1.05);
+    }
+
+    .product img {
+        max-width: 100%;
+        height: auto;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .product h2 {
+        font-size: 1.2em;
+        margin: 10px 0;
+    }
+
+    .product p {
+        font-size: 1.1em;
+        color: #007bff;
+    }
+
+    .product button {
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+    .product button:hover {
+        background-color: #0056b3;
+    }
+
+    .w3-content {
+        max-width: 100%;
+        height: auto;
+    }
+</style>
+
+
+
