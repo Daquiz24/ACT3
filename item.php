@@ -110,21 +110,26 @@ $result = $conn->query($sql);
 
 </head>
 <body>
-<header>
-        <nav>
-        <a class="nav-link" href="homepage.php">Home</a>
+  <header>
+    <nav>
+      <ul>
+        <li class="nav-item">
+          <a class="nav-link" href="homepage.php">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="imagegallery.php">Shop</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="item.php">crud</a>
-        </nav>
+          <a class="nav-link" href="item.php">Crud</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link" href="config/logout.php">Logout</a>
-        </nav>
-        
-    </header>
+        </li>
+      </ul>
+    </nav>
+  </header>
+</body>
+
 <h2>CRUD</h2>
 
 <table>
